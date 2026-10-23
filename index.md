@@ -1,7 +1,7 @@
 ---
 okf_version: "0.2"
 ---
-# gsd_wiki
+# gsd-agent-wiki
 
 A personal, portable knowledge base — the durable "semantic memory" layer that complements the GSD execution harness. This is an [OKF v0.2](https://github.com/GoogleCloudPlatform/open-knowledge-format) bundle: a directory of Markdown files with YAML frontmatter, readable and writable by any human or agent with no proprietary SDK.
 

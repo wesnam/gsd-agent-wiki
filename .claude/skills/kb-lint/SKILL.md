@@ -53,8 +53,8 @@ Surface pages that appear to contradict each other for **HUMAN review**. Report 
 - Contradictions are resolved by the curate flow via **supersession over deletion** (see `schemas/ingestion-rules.md` §4): the human marks the old claim `superseded` with a date and a pointer, never deleting. Lint's job is only to make the apparent conflict visible.
 
 ### Check 6 — Type and trust correctness
-For pages under `wiki/<category>/`: (a) `type` MUST equal the singular category (`concept`, `pattern`, `lesson`, `preference`, `decision`); (b) `verified` MUST contain at least one entry whose `by` starts with `human:` (the human-verifier invariant; `/kb-curate` stamps it after approval); (c) every `generated.at` and `verified[].at` MUST be an ISO 8601 datetime with an explicit UTC offset.
-- **Flag:** a page whose `type` does not match its category directory; a page with no `human:` verifier; a bare date or offset-less timestamp.
+For pages under `wiki/<category>/`: (a) `type` MUST equal the singular category (`concept`, `pattern`, `lesson`, `preference`, `decision`); (b) `verified` MUST contain at least one entry whose `by` starts with `human:` (the human-verifier invariant; `/kb-curate` stamps it after approval); (c) if `projects` is present it MUST be a list of lowercase kebab-case strings; (d) every `generated.at` and `verified[].at` MUST be an ISO 8601 datetime with an explicit UTC offset.
+- **Flag:** a page whose `type` does not match its category directory; a page with no `human:` verifier; a bare date or offset-less timestamp; a `projects` value that is not a list of kebab-case slugs.
 - Do NOT force a category value onto a non-category page (templates are `type: template`, the ingestion schema `type: schema`, inbox candidates `type: candidate` and carry no `verified`) — the category rule applies only to real pages under `wiki/`.
 </process>
 

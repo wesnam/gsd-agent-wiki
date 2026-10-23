@@ -28,7 +28,9 @@ sources:                      # the paths the claims were captured from
   - resource: <path>
 claim: <the durable, reusable assertion>
 confidence: verified | probable | speculative
-reuse_rationale: <why this recurs across projects>
+projects:                     # optional; project/repo tags if the claim is project-specific, else omit
+  - <project-tag>
+reuse_rationale: <why this recurs across projects, or why it matters for the tagged project>
 possible_conflicting_pages:   # list of existing wiki pages this may contradict
   - <path or "none">
 ---
@@ -46,7 +48,8 @@ possible_conflicting_pages:   # list of existing wiki pages this may contradict
 | `sources` | **Required** | A list of `{ resource }` entries naming the project-relative or absolute paths that substantiate the claim. `/kb-curate` carries these onto the promoted page. |
 | `claim` | **Required** | The durable, reusable assertion, stated so a future project can apply it. |
 | `confidence` | **Required (extension)** | Separates fact from personal judgment: `verified`, `probable`, or `speculative`. |
-| `reuse_rationale` | **Required** | Why this recurs across projects, which justifies promoting it past the promotion filter. |
+| `projects` | Optional (extension) | Project/repo tags (lowercase kebab-case) when the claim is specific to those projects or products. Omit for general, cross-project knowledge. `/kb-curate` carries it onto the promoted page. |
+| `reuse_rationale` | **Required** | Why this recurs across projects (or, for a `projects`-tagged item, across work on that project), which justifies promoting it past the promotion filter. |
 | `possible_conflicting_pages` | **Required** | Existing `wiki/` pages this claim may contradict (so `/kb-curate` can apply supersession-over-deletion), or `none`. |
 
 **Enum values (exact):**
@@ -70,6 +73,7 @@ A single capture run may promote **several** durable items from one phase's `LEA
 - **evidence:**
   - <path>
 - **confidence:** verified | probable | speculative
+- **projects:** <project-tag, ... | omit if general>
 - **reuse_rationale:** <why this recurs across projects>
 - **possible_conflicting_pages:**
   - <path or "none">

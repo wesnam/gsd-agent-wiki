@@ -26,6 +26,8 @@ verified:
 status: stable                     # draft | stable | deprecated
 stale_after: 2027-01-01T00:00:00Z  # optional
 confidence: verified               # extension: verified | probable | speculative
+projects:                          # extension, optional: omit for cross-project knowledge
+  - example-product
 related:                           # extension: absolute bundle-relative links
   - /wiki/concepts/okf-page-shape.md
 ---
@@ -46,6 +48,7 @@ This file is itself a non-reserved page, so it carries frontmatter with a non-em
 | `status` | Optional | `draft`, `stable`, or `deprecated`. Absent means `stable`. |
 | `stale_after` | Optional | Absolute ISO 8601 instant. At or after it a reader treats the page as possibly stale. |
 | `confidence` | Extension, required on `wiki/` pages | Separates fact from personal judgment: `verified`, `probable`, or `speculative`. Never present judgment as fact. |
+| `projects` | Extension, optional | YAML list of project/repo tags (lowercase kebab-case, e.g. `acme-api`) this page is specific to. **Absent or empty means general, cross-project knowledge.** Tag a page only when the claim holds for that project/product and not (known) elsewhere. |
 | `related` | Extension, optional | YAML list of absolute bundle-relative links to related pages. |
 
 ### Actor forms

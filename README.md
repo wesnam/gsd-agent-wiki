@@ -1,8 +1,8 @@
-# gsd_wiki
+# gsd-agent-wiki
 
 A personal, portable knowledge base for coding agents: durable concepts, patterns, lessons, preferences, and decisions, stored as plain Markdown in a git repo.
 
-> GSD remembers where the work is. gsd_wiki remembers what you have learned.
+> GSD remembers where the work is. gsd-agent-wiki remembers what you have learned.
 
 - **No server, no SDK.** Markdown + YAML frontmatter, following [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/open-knowledge-format). Read it with any editor or agent.
 - **Reviewed writes only.** Candidates are staged in `inbox/`, then promoted to `wiki/` on a branch after you approve the diff.
@@ -14,9 +14,9 @@ A personal, portable knowledge base for coding agents: durable concepts, pattern
 ## Quick start
 
 ```bash
-git clone https://github.com/<you>/gsd_wiki.git
-cd gsd_wiki
-claude --add-dir /path/to/gsd_wiki     # from any project; loads this KB's rules for the session
+git clone https://github.com/<you>/gsd-agent-wiki.git
+cd gsd-agent-wiki
+claude --add-dir /path/to/gsd-agent-wiki     # from any project; loads this KB's rules for the session
 ```
 
 | Goal | Do this |
@@ -44,13 +44,15 @@ related:
 Body text, with absolute bundle-relative links like [ingestion rules](/schemas/ingestion-rules.md).
 ```
 
+Pages specific to a repo or product add `projects: [my-repo]`; pages without it are general, cross-project knowledge.
+
 ### Make retrieval automatic
 
 Add a short pointer to your global agent instructions (for example `~/.claude/CLAUDE.md`) so that sessions which never load this repo's `CLAUDE.md` still consult it:
 
 ```markdown
 ## Knowledge base
-Before committing to a design or tooling choice, search /path/to/gsd_wiki.
+Before committing to a design or tooling choice, search /path/to/gsd-agent-wiki.
 Read in order: index.md, frontmatter descriptions, rg full-text, page bodies.
 If the KB conflicts with the current project's evidence, the project wins; flag the conflict.
 Never hand-edit wiki/. Use /kb-capture then /kb-curate.

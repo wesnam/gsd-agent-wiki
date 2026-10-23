@@ -1,6 +1,6 @@
 # Architecture
 
-gsd_wiki is the long-term **semantic memory** for coding agents. It is a directory of Markdown files, not a program. The "architecture" is the folder roles, the promotion lifecycle, and the gates that protect canonical knowledge.
+gsd-agent-wiki is the long-term **semantic memory** for coding agents. It is a directory of Markdown files, not a program. The "architecture" is the folder roles, the promotion lifecycle, and the gates that protect canonical knowledge.
 
 ## Design goals
 
@@ -97,6 +97,7 @@ Pages follow [OKF v0.2](https://github.com/GoogleCloudPlatform/open-knowledge-fo
 | `status` | `draft`, `stable`, or `deprecated`. |
 | `sources`, `stale_after` | Optional provenance and freshness. |
 | `confidence` | Extension: `verified`, `probable`, or `speculative`. |
+| `projects` | Extension, optional: kebab-case project/repo tags the page is specific to. Absent means general, cross-project knowledge. |
 | `related` | Extension: absolute bundle-relative links (`/wiki/...`), kept bidirectional. |
 
 Trust tier, derived from `verified`:
@@ -122,7 +123,7 @@ flowchart LR
         PLAN[Planning] -.consults.-> PTR[Global CLAUDE.md pointer]
     end
     LM -->|input| CAP["/kb-capture"]
-    PTR -->|search before big decisions| KB[(gsd_wiki)]
+    PTR -->|search before big decisions| KB[(gsd-agent-wiki)]
 ```
 
 | Direction | Mechanism | Needs GSD? |
