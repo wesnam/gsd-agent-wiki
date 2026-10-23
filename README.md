@@ -1,6 +1,6 @@
 # gsd-agent-wiki
 
-A personal, portable knowledge base for coding agents: durable concepts, patterns, lessons, preferences, and decisions, stored as plain Markdown in a git repo.
+A personal, portable knowledge base for coding agents: durable concepts, patterns, lessons, preferences, and decisions, stored as plain Markdown in a git repo. It is the long-term memory layer for the GSD (Get Shit Done) framework: GSD runs the work and tracks per-project state, and this wiki keeps what was learned across projects. Agents consult it before big decisions, and verified GSD phase learnings are promoted into it through `/kb-capture` and `/kb-curate`.
 
 > GSD remembers where the work is. gsd-agent-wiki remembers what you have learned.
 
